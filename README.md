@@ -1,14 +1,83 @@
-# storyswiper
+# Story Swiper
 
-Story swiper widget
+[![pub package](https://img.shields.io/badge/pub-v1.0.0-orange)](https://pub.dev/packages/flutter_paginator)
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+<img src="https://raw.githubusercontent.com/UdaraWanasinghe/StorySwiper/master/screenrecord.gif" height="640em"/>
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Installing
+
+```
+dependencies:
+  storyswiper: ^1.0.0
+```
+
+## Using
+```dart
+import 'package:flutter/material.dart';
+import 'package:storyswiper/storyswiper.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'StorySwiper Example',
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Color> colors = [
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.green,
+    Colors.blue,
+    Colors.indigo,
+    Colors.purple,
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("StorySwiper Example"),
+      ),
+      body: Container(
+        height: 340,
+        child: StorySwiper.builder(
+          itemCount: colors.length,
+          aspectRatio: 2 / 3,
+          depthFactor: 0.2,
+          dx: 60,
+          dy: 20,
+          paddingStart: 32,
+          verticalPadding: 32,
+          visiblePageCount: 3,
+          widgetBuilder: (index) {
+            return Container(
+              decoration: BoxDecoration(
+                color: colors[index],
+                borderRadius: BorderRadius.all(
+                  Radius.circular(16),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+```

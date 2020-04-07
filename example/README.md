@@ -1,16 +1,73 @@
-# storyswiperexample
+# story swiper example
 
-Story swiper example
+Story swiper example application
 
-## Getting Started
+## Using
+```dart
+import 'package:flutter/material.dart';
+import 'package:storyswiper/storyswiper.dart';
 
-This project is a starting point for a Flutter application.
+void main() => runApp(MyApp());
 
-A few resources to get you started if this is your first Flutter project:
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'StorySwiper Example',
+      home: MyHomePage(),
+    );
+  }
+}
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key}) : super(key: key);
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final List<Color> colors = [
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.green,
+    Colors.blue,
+    Colors.indigo,
+    Colors.purple,
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("StorySwiper Example"),
+      ),
+      body: Container(
+        height: 340,
+        child: StorySwiper.builder(
+          itemCount: colors.length,
+          aspectRatio: 2 / 3,
+          depthFactor: 0.2,
+          dx: 60,
+          dy: 20,
+          paddingStart: 32,
+          verticalPadding: 32,
+          visiblePageCount: 3,
+          widgetBuilder: (index) {
+            return Container(
+              decoration: BoxDecoration(
+                color: colors[index],
+                borderRadius: BorderRadius.all(
+                  Radius.circular(16),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+```
