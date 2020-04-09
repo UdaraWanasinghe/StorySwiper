@@ -1,6 +1,6 @@
 # Story Swiper
 
-[![pub package](https://img.shields.io/badge/pub-v1.0.0-orange)](https://pub.dev/packages/storyswiper)
+[![pub package](https://img.shields.io/badge/pub-v1.0.1-orange)](https://pub.dev/packages/storyswiper)
 
 ## Screenshots
 
@@ -10,7 +10,7 @@
 
 ```
 dependencies:
-  storyswiper: ^1.0.0
+  storyswiper: ^1.0.1
 ```
 
 ## Using
