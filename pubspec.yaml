@@ -1,8 +1,8 @@
 name: storyswiper
-description: Story swiper widget
-version: 0.0.1
-author:
-homepage:
+description: StorySwiper widget
+version: 1.0.0
+author: Udara Wanasinghe <udara.developer@gmail.com>
+homepage: https://github.com/UdaraWanasinghe/StorySwiper
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

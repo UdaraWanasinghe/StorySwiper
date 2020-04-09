@@ -1,6 +1,6 @@
 # Story Swiper
 
-[![pub package](https://img.shields.io/badge/pub-v1.0.0-orange)](https://pub.dev/packages/flutter_paginator)
+[![pub package](https://img.shields.io/badge/pub-v1.0.0-orange)](https://pub.dev/packages/storyswiper)
 
 ## Screenshots
 
