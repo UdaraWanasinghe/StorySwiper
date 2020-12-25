@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class StorySwiper extends StatefulWidget {
   final StorySwiperWidgetBuilder widgetBuilder;
   final int itemCount;
+  final double itemWidth;
+  final double itemHeight;
   final int visiblePageCount;
   final double dx;
   final double dy;
@@ -17,6 +19,8 @@ class StorySwiper extends StatefulWidget {
     Key key,
     @required this.widgetBuilder,
     this.itemCount,
+    @required this.itemWidth,
+    this.itemHeight,
     this.visiblePageCount = 4,
     this.dx = 60,
     this.dy = 20,
@@ -65,7 +69,10 @@ class _StorySwiperState extends State<StorySwiper> {
     final List<Widget> pageList = [];
     final int currentPageIndex = _pagePosition.floor();
     final int lastPage = currentPageIndex + widget.visiblePageCount;
-    final double width = MediaQuery.of(context).size.width;
+    final double width = MediaQuery
+        .of(context)
+        .size
+        .width;
     final double delta = _pagePosition - currentPageIndex;
     double top = -widget.dy * delta + widget.verticalPadding;
     double start = -widget.dx * delta + widget.paddingStart;
@@ -106,6 +113,8 @@ class _StorySwiperState extends State<StorySwiper> {
       top: top,
       bottom: top,
       start: start,
+      width: widget.itemWidth,
+      height: widget.itemHeight,
       textDirection: TextDirection.ltr,
       child: AspectRatio(
         aspectRatio: widget.aspectRatio,
